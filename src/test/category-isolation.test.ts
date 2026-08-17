@@ -118,24 +118,24 @@ describe("category isolation per wallet type", () => {
     expect(visible).toEqual([]);
   });
 
-  it("shows only Driver COD for ShopeePay income even when other income categories exist", () => {
+  it("shows every Driver income category for ShopeePay, with Driver COD first", () => {
     const visible = visibleCategoriesFor({
       categories: all,
       kind: "income",
       walletType: "Driver",
       walletId: "shopee",
     });
-    expect(visible.map((c) => c.name)).toEqual(["Driver COD"]);
+    expect(visible.map((c) => c.name)).toEqual(["Driver COD", "Driver Bonus"]);
   });
 
-  it("shows no categories for ShopeePay expense", () => {
+  it("shows only Driver expense categories for ShopeePay", () => {
     const visible = visibleCategoriesFor({
       categories: all,
       kind: "expense",
       walletType: "Driver",
       walletId: "shopee",
     });
-    expect(visible).toEqual([]);
+    expect(visible.map((c) => c.name)).toEqual(["Driver Bensin"]);
   });
 
   it("keeps the ShopeePay-only rule from affecting other wallets", () => {

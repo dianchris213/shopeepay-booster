@@ -20,6 +20,8 @@ import {
   getState,
   isDriverCodCategory,
   shopeePayAccount,
+  SHOPEE_WALLET_NAME,
+  SHOPEE_WALLET_TX_LABEL,
   useFinance,
 } from "@/lib/finance-store";
 import { reportMutation } from "@/lib/mutation-feedback";
@@ -468,8 +470,9 @@ export function AddTransactionSheet({ open, onClose }: Props) {
               key={option.id}
               active={walletId === option.id}
               onClick={() => selectWallet(option.id)}
+              label={option.name}
             >
-              {option.name}
+              {option.name === SHOPEE_WALLET_NAME ? SHOPEE_WALLET_TX_LABEL : option.name}
             </Chip>
           ))}
         </div>
