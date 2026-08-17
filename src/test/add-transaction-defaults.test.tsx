@@ -48,7 +48,8 @@ describe("AddTransactionSheet defaults", () => {
     );
     // Shopeepay must never be auto-selected for Pemasukan or Pengeluaran.
     expect(active).toBeUndefined();
-    expect(screen.queryByText(shopeePayAccount()!.name)).toBeTruthy();
+    // The reserved wallet is stored as "Shopeepay" but shown as "Driver Shopee".
+    expect(screen.queryByText("Driver Shopee")).toBeTruthy();
     // No wallet, so no categories: the empty state shows.
     expect(screen.getByTestId("tx-empty-categories")).toBeTruthy();
   });
