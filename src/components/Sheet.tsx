@@ -234,14 +234,18 @@ export function Chip({
   active,
   onClick,
   children,
+  label,
 }: {
   active: boolean;
   onClick: () => void;
   children: ReactNode;
+  /** Accessible name when it differs from the rendered label. */
+  label?: string;
 }) {
   return (
     <button
       onClick={onClick}
+      aria-label={label}
       aria-pressed={active}
       className={`tap rounded-full px-3.5 py-1.5 text-[11px] font-medium whitespace-nowrap transition-colors duration-200 ${
         active
