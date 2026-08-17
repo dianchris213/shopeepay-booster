@@ -535,9 +535,14 @@ export function ensureDefaultCustomAccount(): MutationResult {
 }
 
 /** Reserved name of the persistent ShopeeFood driver balance wallet. */
-export const SHOPEE_WALLET_NAME = "Shopeepay";
+export const SHOPEE_WALLET_NAME = "Driver Shopee";
 /** Older installs stored the driver wallet under this misspelled name. */
-export const LEGACY_SHOPEE_WALLET_NAMES = ["ShoopeePay", "ShopeePay", "Shopee Pay"] as const;
+export const LEGACY_SHOPEE_WALLET_NAMES = [
+  "Shopeepay",
+  "ShoopeePay",
+  "ShopeePay",
+  "Shopee Pay",
+] as const;
 /** Category used by every ShopeeFood driver movement. */
 export const DRIVER_CATEGORY = "Driver Shopee";
 /** Category always subtracted from the Shopee Pay balance (platform debt). */
