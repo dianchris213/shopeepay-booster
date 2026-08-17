@@ -98,10 +98,10 @@ export function AddTransactionSheet({ open, onClose }: Props) {
       accounts.find((a) => a.name === DEFAULT_CUSTOM_WALLET_NAME) ??
       accounts.find((a) => a.type === "Custom") ??
       null;
-    // The reserved ShopeePay driver wallet (displayed as "Driver Shopee") is
-    // never auto-selected as a default, for Income or Expense.
+    // The reserved ShopeePay driver wallet (now displayed as "Driver Shopee")
+    // is never auto-selected as a default, for Income or Expense.
     const isNamedShopeePay = (w: typeof driver) =>
-      w?.type === "Driver" || w?.name.replaceAll(/\s/g, "").toLowerCase() === "shopeepay";
+      ["shopeepay", "drivershopee"].includes(w?.name.replaceAll(/\s/g, "").toLowerCase() ?? "");
     const pick = (w: typeof driver) => (w && !isNamedShopeePay(w) ? w : null);
     const preferred =
       nextKind === "income" ? (pick(driver) ?? pick(custom)) : (pick(custom) ?? pick(driver));
