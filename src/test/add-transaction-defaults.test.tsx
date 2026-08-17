@@ -102,7 +102,7 @@ describe("AddTransactionSheet defaults", () => {
 
     await user.click(screen.getByRole("button", { name: /Pemasukan|income/i }));
     const driverName = shopeePayAccount()!.name;
-    expect(driverName).toBe("Driver Shopee");
+    expect(driverName).toBe("Shopeepay");
     await user.click(screen.getByRole("button", { name: driverName }));
 
     await waitFor(() => {
