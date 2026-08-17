@@ -537,12 +537,13 @@ export function ensureDefaultCustomAccount(): MutationResult {
 /** Reserved name of the persistent ShopeeFood driver balance wallet. */
 export const SHOPEE_WALLET_NAME = "Shopeepay";
 /** Older installs stored the driver wallet under this misspelled name. */
-export const LEGACY_SHOPEE_WALLET_NAMES = [
-  "Driver Shopee",
-  "ShoopeePay",
-  "ShopeePay",
-  "Shopee Pay",
-] as const;
+export const LEGACY_SHOPEE_WALLET_NAMES = ["ShoopeePay", "ShopeePay", "Shopee Pay"] as const;
+/**
+ * Display-only label for the reserved driver wallet inside the transaction
+ * input sheet. The stored wallet name stays `SHOPEE_WALLET_NAME`, so nothing
+ * is migrated and every "Driver" category keeps working.
+ */
+export const SHOPEE_WALLET_TX_LABEL = "Driver Shopee";
 /** Category used by every ShopeeFood driver movement. */
 export const DRIVER_CATEGORY = "Driver Shopee";
 /** Category always subtracted from the Shopee Pay balance (platform debt). */
